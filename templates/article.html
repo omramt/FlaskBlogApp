@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container text-white">
+    <div class="mt-5">
+{% if article %}
+<h4>{{article.title}}</h4>
+<hr>
+Yazar: {{article.author}}
+<hr>
+Tarih: {{article.created_date}}
+<hr>
+<span class="overflow">{{article.content|safe}}</span>
+{% else %}
+<div class="alert alert-warning">
+    Böyle bir makale bulunmuyor.
+</div>
+{% endif %}
+</div>
+</div>
+
+
+{% endblock %}

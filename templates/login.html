@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<div class="text-center login-bg" >
+
+{% from "includes/formhelpers.html" import render_field %}
+
+    <div class="text-white mb-3 login-box" style="max-width: 18rem; ">
+        <!--<form method = "post">
+            <h3>Giriş Yap</h3>
+            {{render_field(form.username,placeholder="Kullanıcı Adı",class="login")}}
+            {{render_field(form.password,placeholder="Parola",class="login") }}
+            <a class="text-white text-decoration-none" href="">Şifremi Unuttum</a>
+            <button type="submit" class="btn btn-primary">Giriş Yap</button>
+        </form>-->
+    
+        <form action="" method="post">
+            
+          
+            
+              
+              {{render_field(form.username,placeholder="Kullanıcı Adı",class="login")}}
+          
+             
+              {{render_field(form.password,placeholder="Parola",class="login")}}
+          
+              <button type="submit">Login</button>
+              <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+            </>
+          
+            <div class="container" style="background-color:#f1f1f1">
+              <button type="button" class="cancelbtn">Cancel</button>
+              <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+          </form>
+
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+
+
+{% block body %}
+<div class="container text-white">
+  <div class="row">
+
+    
+      
+      
+      
+
+      <!--article part-->
+  <div class="col-md-9">
+    <div class="article-content">
+      
+
+  {% if articles %}
+  <div id="posts">
+      {% for article in articles[::-1] %}
+      
+        <h3><a class="text-white text-decoration-none overflow" href="/article/{{article.id}}">{{article.title}}</a></h3>
+          <!--<li class="list-group-item mb-3"><a href="article/{{article.id}}">{{article.title}}</a></li>-->
+         <span class="overflow"><p class="text-white">{{article.content|safe}}</p></span>
+        <p ><a style="color:white !important;" href="profile/{{session['username']}}">{{article.author}}</a></p>
+        <p style="color:white !important;">{{article.created_date}}</p>
+        <a class="text-decoration-none text-white" href="/article/{{article.id}}">Makaleyi Oku</a>
+        <hr>
+      
+      {% endfor %}
+    </>
+
+  {% else %}
+  <div class="alert alert-danger" style="width:500px;">Burada henüz makale bulunmuyor.</div>
+  {% endif %}
+</div>
+  </div>
+
+    </div>
+    <!--profile card-->
+    <div class="col-md-3">
+      {% if session["logged_in"] %}
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+              <div>
+                  <img id="profile"class="ml-4 mr-2" src="/static/images/150-1503945_transparent-user-png-default-user-image-png-png.png" alt="">
+                  <a class="text-decoration-none text-dark" href="profile/{{session['username']}}">{{session["username"]}}</a>
+                  </div>
+            </div>
+          </div>
+      {%else %}
+      {%endif%}
+    
+    </div>
+
+
+</div>
+
+
+
+
+{% endblock %}
+
+
